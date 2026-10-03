@@ -1,0 +1,11 @@
+# Editor settings
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Local archive of old versions (not published)
+Archiv/

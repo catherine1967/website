@@ -28,10 +28,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  background:var(--eis);
+  background:linear-gradient(180deg,#f4f9f8 0%,#eef5f4 22%,#f6faf9 48%,#edf3f1 100%);
   color:var(--petrol-tief);
   font-family:var(--text);
-  font-size:18px;
+  font-size:17px;
   line-height:1.75;
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
@@ -39,16 +39,10 @@ body{
 a{color:inherit}
 img{max-width:100%;display:block}
 
-.entwurf{
-  background:var(--petrol-tief);color:var(--himmel);
-  font-size:.72rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;text-align:center;padding:.6rem 1rem;
-}
-
 /* Kopf */
 .kopf{background:var(--eis-hell);border-bottom:2px solid var(--petrol)}
 .kopf-innen{
-  max-width:var(--mass);margin:0 auto;padding:1.4rem 1.7rem;
+  max-width:var(--mass);margin:0 auto;padding:1.2rem 1.7rem 1.1rem;
   display:flex;flex-wrap:wrap;gap:1rem 1.5rem;
   align-items:center;justify-content:space-between;
 }
@@ -94,8 +88,8 @@ img{max-width:100%;display:block}
 @media(max-width:1100px){.wegweiser{display:none}}
 
 /* Bänder */
-.band{padding:4.5rem 0}
-@media(min-width:840px){.band{padding:6.5rem 0}}
+.band{padding:4rem 0}
+@media(min-width:840px){.band{padding:5rem 0}}
 .band-eis{background:var(--eis)}
 .band-hell{background:var(--eis-hell)}
 .band-himmel{background:var(--himmel)}
@@ -104,9 +98,326 @@ img{max-width:100%;display:block}
 .band-petrol{background:var(--petrol);color:var(--eis-hell)}
 .band-petrol h2,.band-petrol h3{color:var(--eis-hell)}
 
+section#person{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(95,187,178,.28), transparent 26%),
+    radial-gradient(circle at 16% 84%, rgba(191,220,228,.42), transparent 31%),
+    radial-gradient(circle at 50% 100%, rgba(224,160,43,.12), transparent 28%),
+    linear-gradient(180deg, rgba(255,255,255,.32) 0%, rgba(242,249,250,.96) 38%, rgba(205,232,236,.82) 100%);
+}
+section#person::before{
+  content:"";position:absolute;width:46vw;max-width:560px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.26),transparent 70%);
+  top:-18%;right:-9%;pointer-events:none;
+}
+section#person::after{
+  content:"";position:absolute;width:38vw;max-width:430px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(188,220,228,.38),transparent 72%);
+  bottom:-14%;left:-8%;pointer-events:none;
+}
+section#person .innen{position:relative;z-index:1}
+section#person .innen::before,
+section#person .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#person .innen::before{
+  width:22vw;max-width:240px;aspect-ratio:1;right:9%;top:18%;
+  background:radial-gradient(circle,rgba(255,255,255,.55),transparent 70%);
+}
+section#person .innen::after{
+  width:18vw;max-width:200px;aspect-ratio:1;left:6%;bottom:12%;
+  background:radial-gradient(circle,rgba(191,220,228,.5),transparent 72%);
+}
+
+section#ferne{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(127,174,139,.20), transparent 24%),
+    radial-gradient(circle at 82% 72%, rgba(255,255,255,.12), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(224,160,43,.12), transparent 26%),
+    linear-gradient(180deg, rgba(25,88,97,.84) 0%, rgba(18,73,84,.92) 100%);
+}
+section#ferne::before{
+  content:"";position:absolute;width:42vw;max-width:500px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.24),transparent 70%);
+  top:-18%;left:-9%;pointer-events:none;
+}
+section#ferne::after{
+  content:"";position:absolute;width:34vw;max-width:380px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(224,160,43,.16),transparent 72%);
+  bottom:-16%;right:-8%;pointer-events:none;
+}
+section#ferne .innen{position:relative;z-index:1}
+section#ferne .innen::before,
+section#ferne .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#ferne .innen::before{
+  width:20vw;max-width:220px;aspect-ratio:1;left:14%;top:16%;
+  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 70%);
+}
+section#ferne .innen::after{
+  width:16vw;max-width:180px;aspect-ratio:1;right:8%;bottom:10%;
+  background:radial-gradient(circle,rgba(95,187,178,.22),transparent 72%);
+}
+
+#ferne h2{
+  font-weight:600;
+  letter-spacing:-.025em;
+  text-shadow:0 1px 0 rgba(0,0,0,.06);
+}
+
+#ferne .satz p,
+#ferne .zwischen,
+#ferne .begleitung li,
+#ferne .stufe p,
+#ferne .stufe h3,
+#ferne .zitat p,
+#ferne .marke {
+  color:rgba(244,248,249,.96);
+}
+
+#ferne .stufe{
+  background:rgba(255,255,255,.06);
+  border-left-color:rgba(95,187,178,.8);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+#ferne .begleitung li::before{
+  background:rgba(224,160,43,.9);
+}
+
+#ferne .schritt-hell{
+  box-shadow:0 10px 22px rgba(10,59,69,.15);
+}
+
+#ferne .satz{
+  opacity:1;
+}
+
+section#angebote{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(95,187,178,.32), transparent 22%),
+    radial-gradient(circle at 18% 80%, rgba(127,174,139,.18), transparent 24%),
+    radial-gradient(circle at 54% 56%, rgba(224,160,43,.12), transparent 28%),
+    radial-gradient(circle at 68% 100%, rgba(191,220,228,.20), transparent 30%),
+    linear-gradient(180deg, rgba(235,245,244,.95) 0%, rgba(246,250,248,.98) 42%, rgba(229,237,233,.94) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.38);
+}
+section#angebote::before{
+  content:"";position:absolute;width:52vw;max-width:620px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.24),transparent 68%);
+  top:-22%;right:-11%;pointer-events:none;
+}
+section#angebote::after{
+  content:"";position:absolute;width:42vw;max-width:500px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(191,220,228,.28),transparent 72%);
+  bottom:-18%;left:-12%;pointer-events:none;
+}
+section#angebote .innen{position:relative;z-index:1}
+section#angebote .innen::before,
+section#angebote .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#angebote .innen::before{
+  width:24vw;max-width:280px;aspect-ratio:1;right:9%;top:18%;
+  background:radial-gradient(circle,rgba(255,255,255,.44),transparent 70%);
+}
+section#angebote .innen::after{
+  width:22vw;max-width:260px;aspect-ratio:1;left:8%;bottom:8%;
+  background:radial-gradient(circle,rgba(95,187,178,.22),transparent 72%);
+}
+
+section#erkennen{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(255,255,255,.42), transparent 22%),
+    radial-gradient(circle at 18% 84%, rgba(95,187,178,.18), transparent 24%),
+    radial-gradient(circle at 50% 100%, rgba(224,160,43,.10), transparent 26%),
+    linear-gradient(180deg, rgba(214,230,235,.92) 0%, rgba(223,236,240,.96) 100%);
+}
+section#erkennen::before{
+  content:"";position:absolute;width:44vw;max-width:540px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.22),transparent 72%);
+  top:-18%;right:-10%;pointer-events:none;
+}
+section#erkennen::after{
+  content:"";position:absolute;width:36vw;max-width:420px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.22),transparent 72%);
+  bottom:-16%;left:-10%;pointer-events:none;
+}
+section#erkennen .innen{position:relative;z-index:1}
+section#erkennen .innen::before,
+section#erkennen .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#erkennen .innen::before{
+  width:22vw;max-width:250px;aspect-ratio:1;right:10%;top:18%;
+  background:radial-gradient(circle,rgba(255,255,255,.42),transparent 72%);
+}
+section#erkennen .innen::after{
+  width:18vw;max-width:210px;aspect-ratio:1;left:8%;bottom:10%;
+  background:radial-gradient(circle,rgba(95,187,178,.14),transparent 72%);
+}
+
+section#reiki{
+  position:relative;overflow:hidden;
+  background:linear-gradient(165deg,var(--eis-hell) 0%,var(--eis) 48%,var(--himmel) 100%);
+}
+section#reiki::before{
+  content:"";position:absolute;width:42vw;max-width:500px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.42),transparent 68%);
+  top:-10%;right:-9%;pointer-events:none;
+}
+section#reiki::after{
+  content:"";position:absolute;width:32vw;max-width:360px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(224,160,43,.32),transparent 70%);
+  bottom:-18%;left:-8%;pointer-events:none;
+}
+section#reiki .innen{position:relative;z-index:1}
+section#reiki .innen::before,
+section#reiki .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+  filter:blur(2px);
+}
+section#reiki .innen::before{
+  width:28vw;max-width:300px;aspect-ratio:1;right:8%;top:24%;
+  background:radial-gradient(circle,rgba(191,220,228,.55),transparent 70%);
+}
+section#reiki .innen::after{
+  width:24vw;max-width:260px;aspect-ratio:1;left:8%;bottom:8%;
+  background:radial-gradient(circle,rgba(255,255,255,.38),transparent 70%);
+}
+
+section#seminare{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 84% 10%, rgba(255,255,255,.36), transparent 22%),
+    radial-gradient(circle at 16% 78%, rgba(95,187,178,.20), transparent 24%),
+    radial-gradient(circle at 58% 56%, rgba(224,160,43,.10), transparent 30%),
+    radial-gradient(circle at 68% 100%, rgba(127,174,139,.16), transparent 28%),
+    linear-gradient(180deg, rgba(219,232,222,.95) 0%, rgba(232,240,234,.98) 50%, rgba(224,235,229,.94) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.30);
+}
+section#seminare::before{
+  content:"";position:absolute;width:52vw;max-width:620px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.20),transparent 70%);
+  top:-22%;right:-10%;pointer-events:none;
+}
+section#seminare::after{
+  content:"";position:absolute;width:40vw;max-width:470px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.24),transparent 70%);
+  bottom:-18%;left:-12%;pointer-events:none;
+}
+section#seminare .innen{position:relative;z-index:1}
+section#seminare .innen::before,
+section#seminare .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#seminare .innen::before{
+  width:24vw;max-width:270px;aspect-ratio:1;right:9%;top:18%;
+  background:radial-gradient(circle,rgba(255,255,255,.42),transparent 72%);
+}
+section#seminare .innen::after{
+  width:20vw;max-width:240px;aspect-ratio:1;left:9%;bottom:10%;
+  background:radial-gradient(circle,rgba(127,174,139,.18),transparent 72%);
+}
+
+section#stimmen{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(95,187,178,.24), transparent 22%),
+    radial-gradient(circle at 18% 80%, rgba(127,174,139,.14), transparent 26%),
+    radial-gradient(circle at 52% 54%, rgba(224,160,43,.10), transparent 30%),
+    radial-gradient(circle at 68% 100%, rgba(191,220,228,.16), transparent 30%),
+    linear-gradient(180deg, rgba(244,249,247,.96) 0%, rgba(250,252,251,.99) 52%, rgba(236,243,238,.95) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.34);
+}
+section#stimmen::before{
+  content:"";position:absolute;width:54vw;max-width:640px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.22),transparent 70%);
+  top:-20%;right:-10%;pointer-events:none;
+}
+section#stimmen::after{
+  content:"";position:absolute;width:40vw;max-width:470px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(191,220,228,.22),transparent 72%);
+  bottom:-18%;left:-12%;pointer-events:none;
+}
+section#stimmen .innen{position:relative;z-index:1}
+section#stimmen .innen::before,
+section#stimmen .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#stimmen .innen::before{
+  width:24vw;max-width:270px;aspect-ratio:1;right:9%;top:18%;
+  background:radial-gradient(circle,rgba(255,255,255,.42),transparent 72%);
+}
+section#stimmen .innen::after{
+  width:18vw;max-width:220px;aspect-ratio:1;left:8%;bottom:10%;
+  background:radial-gradient(circle,rgba(255,255,255,.14),transparent 72%);
+}
+
+section#kontakt{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(95,187,178,.18), transparent 24%),
+    radial-gradient(circle at 84% 72%, rgba(255,255,255,.14), transparent 22%),
+    radial-gradient(circle at 52% 100%, rgba(224,160,43,.10), transparent 26%),
+    linear-gradient(180deg, rgba(221,233,227,.96) 0%, rgba(233,241,235,.98) 50%, rgba(226,236,231,.94) 100%);
+  color:var(--petrol-tief);
+}
+section#kontakt::before{
+  content:"";position:absolute;width:42vw;max-width:500px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(95,187,178,.16),transparent 70%);
+  top:-18%;left:-9%;pointer-events:none;
+}
+section#kontakt::after{
+  content:"";position:absolute;width:34vw;max-width:380px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.14),transparent 72%);
+  bottom:-16%;right:-8%;pointer-events:none;
+}
+section#kontakt .innen{position:relative;z-index:1}
+section#kontakt .innen::before,
+section#kontakt .innen::after{
+  content:"";position:absolute;border-radius:50%;pointer-events:none;z-index:-1;
+}
+section#kontakt .innen::before{
+  width:20vw;max-width:220px;aspect-ratio:1;left:14%;top:16%;
+  background:radial-gradient(circle,rgba(255,255,255,.22),transparent 70%);
+}
+section#kontakt .innen::after{
+  width:16vw;max-width:180px;aspect-ratio:1;right:8%;bottom:10%;
+  background:radial-gradient(circle,rgba(127,174,139,.16),transparent 72%);
+}
+
 .innen{max-width:var(--mass);margin:0 auto;padding:0 1.7rem}
 @media(min-width:840px){.innen{padding:0 3rem}}
 .satz{max-width:var(--schmal)}
+.reiki-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(220px,.85fr);
+  gap:2rem;
+  align-items:center;
+}
+.reiki-layout .satz{max-width:none}
+.reiki-bild{
+  margin:0;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 18px 38px rgba(10,59,69,.12);
+}
+.reiki-bild img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:saturate(0.78) contrast(0.96) brightness(1.02) sepia(0.08);
+}
+@media(max-width:760px){
+  .reiki-layout{grid-template-columns:1fr}
+}
 
 .marke{
   display:flex;align-items:center;gap:.7rem;
@@ -128,39 +439,58 @@ p+p{margin-top:1.1rem}
 
 /* Auftakt */
 .auftakt{
-  background:linear-gradient(165deg,var(--eis-hell) 0%,var(--eis) 45%,var(--himmel) 100%);
-  padding:4rem 0 5rem;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 14%, rgba(224,160,43,.28), transparent 24%),
+    radial-gradient(circle at 18% 78%, rgba(95,187,178,.38), transparent 22%),
+    radial-gradient(circle at 52% 100%, rgba(127,174,139,.22), transparent 28%),
+    linear-gradient(165deg,#f9fbfb 0%,#edf9f8 26%,#e5f0f3 52%,#dfeef0 100%);
+  padding:2.5rem 0 4.2rem;position:relative;overflow:hidden;
 }
-@media(min-width:840px){.auftakt{padding:6rem 0 7rem}}
+@media(min-width:840px){.auftakt{padding:3.4rem 0 4.8rem}}
 .auftakt::before{
   content:"";position:absolute;width:46vw;max-width:520px;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(95,187,178,.45),transparent 70%);
+  background:radial-gradient(circle,rgba(95,187,178,.60),transparent 70%);
   top:-12%;right:-8%;pointer-events:none;
 }
 .auftakt::after{
   content:"";position:absolute;width:34vw;max-width:400px;aspect-ratio:1;border-radius:50%;
-  background:radial-gradient(circle,rgba(224,160,43,.35),transparent 70%);
+  background:radial-gradient(circle,rgba(224,160,43,.45),transparent 70%);
   bottom:-16%;left:-6%;pointer-events:none;
 }
 .auftakt-raster{position:relative;display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
 @media(min-width:880px){.auftakt-raster{grid-template-columns:1.15fr .85fr;gap:4rem}}
 .h-gross{
-  font-family:var(--display);font-weight:400;
-  font-size:clamp(2.3rem,5.6vw,3.9rem);line-height:1.06;letter-spacing:-.02em;
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(2.5rem,4.5vw,4.2rem);line-height:1.02;letter-spacing:-.03em;
+  color:var(--petrol-tief);
+  text-shadow:0 2px 0 rgba(255,255,255,.35);
 }
-.auftakt-antwort{margin-top:1.8rem;max-width:46ch;font-size:1.1rem}
-
+.auftakt-antwort{margin-top:1.8rem;max-width:46ch;font-size:1.12rem;color:var(--petrol-tief);opacity:.94}
+.hero-claim{
+  grid-column:1 / -1;
+  max-width:100%;
+  margin:0.6rem 0 0;
+  font-family:var(--display);font-weight:500;font-style:normal;
+  font-size:clamp(0.9rem,1.45vw,1.7rem);line-height:1.28;letter-spacing:-.01em;
+  color:var(--petrol-tief);
+}
+@media(min-width:880px){
+  .hero-claim{
+    max-width:calc(100% - 18rem);
+    margin-top:0.2rem;
+  }
+}
 /* Porträt */
 .portrait{
   width:min(72%, 390px);
   margin-inline:auto;
   margin-top:0.5rem;
-  border-radius:6px;
+  border-radius:8px;
   overflow:hidden;
   box-shadow:0 14px 38px rgba(10,59,69,.16);
   transform:translateY(6px);
 }
-.portrait img{width:100%;height:auto;display:block}
+.portrait img{width:100%;height:auto;display:block;filter:saturate(0.72) contrast(0.94) brightness(1.03) sepia(0.08)}
 
 /* Video */
 .video-rahmen{
@@ -202,7 +532,11 @@ p+p{margin-top:1.1rem}
 .schritt-schlicht:hover,.schritt-schlicht:focus-visible{background:none;box-shadow:inset 0 -2px 0 var(--petrol)}
 
 /* Listen */
-.zustaende{list-style:none;max-width:var(--schmal)}
+.zustaende{list-style:none;max-width:var(--schmal);margin-top:0}
+section#reiki h2{margin-bottom:0}
+section#reiki h2 + .reiki-layout{margin-top:0}
+section#reiki .satz > p:first-child{margin-top:0}
+section#reiki .satz > p:last-child{margin-bottom:0}
 .zustaende li{
   font-family:var(--display);font-weight:400;
   font-size:clamp(1.15rem,2.5vw,1.45rem);line-height:1.4;
@@ -372,10 +706,30 @@ p+p{margin-top:1.1rem}
 .termin-frei{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--salbei)}
 @media(min-width:760px){.termin-frei{text-align:right}}
 
+section#hinweis{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(95,187,178,.16), transparent 20%),
+    radial-gradient(circle at 82% 84%, rgba(255,255,255,.22), transparent 24%),
+    linear-gradient(180deg, rgba(234,243,240,.95) 0%, rgba(245,250,247,.98) 100%);
+}
+section#hinweis::before{
+  content:"";position:absolute;width:44vw;max-width:520px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(127,174,139,.16),transparent 70%);
+  top:-18%;right:-10%;pointer-events:none;
+}
+section#hinweis::after{
+  content:"";position:absolute;width:34vw;max-width:400px;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 72%);
+  bottom:-18%;left:-10%;pointer-events:none;
+}
+section#hinweis .innen{position:relative;z-index:1}
+
 .hinweis{
-  max-width:var(--schmal);background:rgba(255,255,255,.6);
-  border-left:4px solid var(--petrol);border-radius:0 5px 5px 0;
+  max-width:var(--schmal);background:rgba(255,255,255,.54);
+  border-left:4px solid var(--salbei);border-radius:0 6px 6px 0;
   padding:1.4rem 1.5rem;font-size:.97rem;
+  box-shadow:0 10px 24px rgba(18,73,84,.04);
 }
 
 /* Leitsatz */
@@ -431,8 +785,6 @@ p+p{margin-top:1.1rem}
 </head>
 <body>
 
-<div class="entwurf">Entwurf · Nur die Seminartermine sind Platzhalter</div>
-
 <nav class="wegweiser" aria-label="Abschnitte dieser Seite">
   <a class="knoten" href="#auftakt"><em>Anfang</em></a>
   <a class="knoten" href="#erkennen"><em>Bei mir bist du richtig</em></a>
@@ -452,7 +804,7 @@ p+p{margin-top:1.1rem}
     </a>
     <div class="kopf-rechts">
       <a class="insta" href="https://www.instagram.com/praxis.energiearbeit/" target="_blank" rel="noopener">Instagram</a>
-      <a class="kopf-schritt" href="#kontakt">Kennenlernen vereinbaren</a>
+      <a class="kopf-schritt" href="#kontakt">Erstgespräch vereinbaren</a>
     </div>
   </div>
 </header>
@@ -463,48 +815,78 @@ p+p{margin-top:1.1rem}
 <section class="auftakt" id="auftakt">
   <div class="innen auftakt-raster">
     <div>
-      <h1 class="h-gross an" style="--d:200ms; font-size: clamp(1.05rem, 2vw, 2.2rem); line-height: 1.12; max-width: 11ch;">Wenn du spürst, dass es so nicht mehr<br>weitergeht, unterstützt dich Reiki<br>auf deinem Weg!</h1>
-      <p class="auftakt-antwort an" style="--d:380ms">
-        Als ehemalige Physiotherapeutin bilde ich eine Brücke zwischen
-        körpertherapeutischem Wissen und dem Kontakt zur geistigen Welt.
-
-        Bei mir bist du richtig, wenn dir Energie, innere Balance und Klarheit fehlen.
-        Wenn du in einer herausfordernden Lebensphase feststeckst und dir Veränderung
-        wünschst. Das geht auch über jede Entfernung.
+      <h1 class="h-gross an" style="--d:200ms; font-size: clamp(1.05rem, 2vw, 2.2rem); line-height: 1.12; max-width: 15ch;">Wenn du spürst, dass es so nicht mehr<br>weitergehen kann, unterstützt dich Reiki<br>auf deinem Weg!</h1>
+      <p class="auftakt-antwort an" style="--d:380ms; max-width: 46ch;">
+        Während meiner Reiki-Behandlungen lokalisiere ich Blockaden in deinem System und bringe die Energien wieder in Fluss.
       </p>
-      <a class="schritt an" style="--d:540ms" href="#kontakt">Kostenloses Kennenlernen vereinbaren</a>
+      <a class="schritt an" style="--d:540ms" href="#kontakt">Unverbindliches Erstgespräch vereinbaren</a>
     </div>
     <figure class="portrait an" style="--d:320ms">
-      <img src="assets/portrait.jpg" alt="Catherine Wünnenberg" width="602" height="752">
+      <img src="assets/Catherine.png" alt="Catherine Wünnenberg" width="602" height="752">
     </figure>
+    <p class="hero-claim an" style="--d:620ms;">
+      Als ehemalige Physiotherapeutin bilde ich seit über 20 Jahren eine Brücke zwischen körpertherapeutischem Wissen und dem Kontakt zur geistigen Welt.
+    </p>
   </div>
 </section>
 
 <!-- Wiedererkennung -->
 <section class="band band-himmel" id="erkennen">
   <div class="innen">
-    <div class="marke">Vielleicht kennst du das</div>
+    <div class="marke">Du bist bei mir richtig, wenn</div>
     <ul class="zustaende">
       <li>du dich innerlich erschöpft fühlst</li>
       <li>deine Gedanken ständig kreisen</li>
       <li>du den Kontakt zu dir selbst verloren hast</li>
-      <li>du die Botschaft hinter deinen Beschwerden verstehen möchtest</li>
       <li>du dich nach Ruhe, Klarheit und neuer Kraft sehnst</li>
       <li>dein Körper dir immer wieder Grenzen aufzeigt</li>
+      
     </ul>
-    <p class="dann">
-      Dann kannst du deine Lebenssituation einmal aus übergeordneter Sicht beleuchten
-      lassen, um besser zu verstehen, warum du feststeckst.
+    <p>
+      
+    </p>
+    <p style="margin-top: 1rem;">
+      So können wir deine Lebenssituation während der Behandlung aus übergeordneter Sicht beleuchten, um besser zu verstehen, warum du feststeckst. Mit den Impulsen aus der geistigen Welt kannst du dann Veränderung einleiten.
     </p>
     <p class="satz" style="margin-top:1.6rem">
-      Meine Arbeit richtet sich an Menschen, die offen für eine energetische und
-      spirituelle Betrachtung ihres Lebens sind und sich nach Veränderung sehnen.
+      Meine Arbeit richtet sich an Menschen, die offen für eine energetische und spirituelle Betrachtung ihres Lebens sind und sich nach Veränderung sehnen.
     </p>
 
     <blockquote class="zitat" style="border-left-color:var(--petrol)">
       <p>„Wunderbar waren für mich die vielen konkreten und hilfreichen Anregungen, die ich selber in meinem Alltag umsetzen konnte.“</p>
       <cite>Antje</cite>
     </blockquote>
+  </div>
+</section>
+
+<!-- Was ist Reiki -->
+<section class="band band-hell" id="reiki">
+  <div class="innen">
+    <div class="marke">Was ist Reiki</div>
+    <h2>Was ist Reiki?</h2>
+    <div class="reiki-layout">
+      <div class="satz">
+        <p>
+          Reiki ist eine japanische Methode der Energiearbeit, die von Dr. Mikao Usui entwickelt wurde. „Re“ bedeutet „universell“ und „Ki“ bedeutet Lebensenergie. Diese ist jedem zugänglich.
+        </p>
+        <p>
+          Während einer Behandlung kanalisiert der Praktizierende diese Lichtenergie und leitet sie über die Hände an den Klienten weiter.
+        </p>
+      </div>
+      <figure class="reiki-bild">
+        <img src="assets/Behandlung.png" alt="Reiki-Behandlung" width="900" height="1200">
+      </figure>
+    </div>
+    <ul class="zustaende">
+      So können
+      <li>Vitalkraft zugeführt</li>
+      <li>Selbstheilungskräfte unterstützt</li>
+      <li>Emotionale Blockaden gelöst</li>
+      <li>Tiefenentspannung herbeigeführt</li>
+      <li>Körper, Geist und Seele harmonisiert</li>
+      <li>werden.</li>
+    </ul>
+    <a class="schritt" href="#kontakt">Unverbindliches Erstgespräch vereinbaren</a>
   </div>
 </section>
 
@@ -515,35 +897,14 @@ p+p{margin-top:1.1rem}
     <h2>Mein Weg von der Physiotherapie zur Energiearbeit</h2>
     <div class="satz">
       <p>
-        Viele Jahre arbeitete ich als Physiotherapeutin und begegnete täglich Menschen
-        mit Schmerzen, Stress und innerer Belastung. Mit der Zeit wurde mir bewusst,
-        dass körperliche Beschwerden oft von tiefer liegenden emotionalen und
-        energetischen Themen begleitet werden. Die Begegnung mit Reiki hat meinen Blick
-        auf Heilung erweitert.
+        Viele Jahre arbeitete ich als Physiotherapeutin und begegnete täglich Menschen mit Schmerzen, Stress und innerer Belastung. Mit der Zeit wurde mir bewusst, dass körperliche Beschwerden oft von tiefer liegenden emotionalen und energetischen Themen begleitet werden. Die Begegnung mit Reiki hat meinen Blick auf Heilung erweitert.
       </p>
       <p>
-        Heute begleite ich Menschen ganzheitlich – mit Ruhe, Achtsamkeit, Erfahrung und
-        einem tiefen Vertrauen in die Fähigkeit des Menschen, wieder in Balance zu finden.
+        Heute begleite ich Menschen ganzheitlich – mit Ruhe, Achtsamkeit, Erfahrung und einem tiefen Vertrauen in die Fähigkeit des Menschen, wieder in Balance zu finden.
       </p>
       <p>
-        
+        Ich bin im Dezember 1967 in Freiburg im Breisgau geboren. Von 1990 bis 2007 habe ich als Physiotherapeutin in Hamburg, Lübeck und Köln gearbeitet. Da mir der ganzheitliche Ansatz schon immer wichtig war, belegte ich Fortbildungen wie Shiatsu, Akupunktmassage nach Penzel, Osteopathie und Kinesiologie. 2004 begann ich mit der Reikiausbildung, den Meister- und Lehrergrad erhielt ich 2006. Inzwischen arbeite ich ausschließlich mit der „universellen Lebensenergie“. Heute lebe ich mit meiner Familie in Staufen im Breisgau.
       </p>
-      <p>
-        Ich bin im Dezember 1967 in Freiburg im Breisgau geboren. Von 1990 bis 2007 habe
-        ich als Physiotherapeutin in Hamburg, Lübeck und Köln gearbeitet. Da mir der
-        ganzheitliche Ansatz schon immer wichtig war, belegte ich Fortbildungen wie
-        Shiatsu, Akupunktmassage nach Penzel, Osteopathie und Kinesiologie. 2004 begann
-        ich mit der Reikiausbildung, den Meister- und Lehrergrad erhielt ich 2006.
-        Inzwischen arbeite ich ausschließlich mit der „universellen Lebensenergie“.
-        Heute lebe ich mit meiner Familie in Staufen im Breisgau.
-      </p>
-    </div>
-
-    <div class="zwischen">Meine Philosophie</div>
-    <div class="philosophie">
-      <span>Dem Leben mit Offenheit, Freude und einer Prise Humor zu begegnen.</span>
-      <span>Mit geerdeter Spiritualität meinen Weg zu beschreiten.</span>
-      <span>Täglich für meinen inneren Frieden zu sorgen, damit ein achtsames Miteinander möglich ist.</span>
     </div>
 
     <blockquote class="zitat">
@@ -558,18 +919,12 @@ p+p{margin-top:1.1rem}
       <div class="beleg"><b>2012</b><span>eigene Praxis für Energiearbeit</span></div>
     </div>
     <div class="marke" style="margin-top:3rem">Bevor du schreibst</div>
-    <h3 style="font-size:1.5rem;margin-bottom:1rem">Hör mich einmal sprechen.</h3>
-    <p class="satz" style="margin-bottom:1.6rem;opacity:.85">
-      Wenn wir uns nicht persönlich begegnen, ist das hier das Nächste dran.
-    </p>
+    <h3 style="font-size:1.5rem;margin-bottom:1rem">Über mich und meine Arbeit:</h3>
     <figure class="video-rahmen" id="videorahmen">
-      <div class="video-start">
-        <button type="button" class="video-knopf" id="videoknopf">&#9654;&nbsp; Video starten</button>
-        <p class="video-hinweis">
-          Das Video liegt bei einem externen Anbieter. Mit dem Start wird eine Verbindung
-          zu dessen Servern hergestellt.
-        </p>
-      </div>
+      <video controls preload="metadata" playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0f5561;" aria-label="Video über Catherine Wünnenberg">
+        <source src="file:///D:/OneDrive/05%20Mentora/%C3%9Cber%20mich.mp4" type="video/mp4">
+        Dein Browser unterstützt keine HTML5-Videos.
+      </video>
     </figure>
   </div>
 </section>
@@ -578,19 +933,13 @@ p+p{margin-top:1.1rem}
 <section class="band band-petrol" id="ferne">
   <div class="innen">
     <div class="marke">Fernreiki</div>
-    <h2>Vier von fünf Begleitungen finden über die Ferne statt.</h2>
+    <h2>Vier von fünf Behandlungen finden über die Ferne statt.</h2>
     <div class="satz">
       <p>
-        Ablauf und Inhalt sind wie bei einer Sitzung vor Ort. Du liegst zu Hause, an
-        einem ruhigen Ort, und nimmst dir eine Stunde Zeit. Ob zwischen uns dreißig
-        Kilometer liegen oder sechshundert, macht für die Arbeit keinen Unterschied.
+        Ablauf und Inhalt sind wie bei einer Sitzung vor Ort. Du liegst zu Hause, an einem ruhigen Ort, und nimmst dir eine Stunde Zeit. Ob zwischen uns dreißig Kilometer liegen oder sechshundert, macht für die Arbeit keinen Unterschied.
       </p>
       <p>
-        Während der Behandlung lokalisiere ich Blockaden im Energiesystem und bringe die
-        Energien wieder in Fluss. Zusätzlich empfange ich Bilder und Botschaften der
-        geistigen Welt, die für deine Lebenssituation unterstützend und richtungsweisend
-        sind. Mit diesem neuen Verständnis kann Veränderung beginnen und Klarheit, Kraft
-        sowie innere Ruhe können entstehen.
+        Während der Behandlung lokalisiere ich Blockaden in deinem Energiesystem und bringe die Energien wieder in Fluss. Zusätzlich empfange ich Bilder und Botschaften der geistigen Welt, die für deine Lebenssituation unterstützend und richtungsweisend sind. Mit diesem neuen Verständnis kann Veränderung beginnen und Klarheit, Kraft sowie innere Ruhe können entstehen.
       </p>
     </div>
 
@@ -602,15 +951,15 @@ p+p{margin-top:1.1rem}
       </div>
       <div class="stufe">
         <h3>Du machst es dir bequem</h3>
-        <p>Eine Stunde ungestört, liegend, angezogen, zugedeckt. Keine Technik, keine Videoschalte, kein Anruf.</p>
+        <p>40 Minuten ungestört, liegend, angezogen, zugedeckt. Keine Technik, keine Videoschalte, kein Anruf.</p>
       </div>
       <div class="stufe">
         <h3>Ich arbeite</h3>
-        <p>In dieser Stunde bin ich bei dir. Manche schlafen ein, manche spüren Wärme, manche spüren zunächst nichts.</p>
+        <p>In dieser Zeit arbeite ich in deinem Energiesystem. Manche schlafen ein, manche spüren Wärme, manche spüren zunächst nichts.</p>
       </div>
       <div class="stufe">
-        <h3>Wir besprechen es</h3>
-        <p>Was ich wahrgenommen habe, welche Bilder und Botschaften kamen – und alltagstaugliche Impulse für dich.</p>
+        <h3>Danach besprechen wir,</h3>
+        <p>was ich wahrgenommen habe, welche Bilder, Botschaften sowie alltagstaugliche Impulse für dich übermittelt wurden. Hierfür kannst du weitere 20-30 Minuten einrechnen.</p>
       </div>
     </div>
 
@@ -629,7 +978,7 @@ p+p{margin-top:1.1rem}
       <cite>Caroline</cite>
     </blockquote>
 
-    <a class="schritt schritt-hell" href="#kontakt">Kostenloses Kennenlernen vereinbaren</a>
+    <a class="schritt schritt-hell" href="#kontakt">Unverbindliches Erstgespräch vereinbaren</a>
   </div>
 </section>
 
@@ -643,8 +992,7 @@ p+p{margin-top:1.1rem}
         <span class="bereich">Über die Ferne</span>
         <h3>Fernreiki</h3>
         <p>
-          Ablauf und Inhalt sind wie bei einer Sitzung vor Ort. Du liegst zu Hause,
-          an einem ruhigen Ort. Im Anschluss besprechen wir, was sich gezeigt hat.
+          Ablauf und Inhalt sind wie bei einer Sitzung vor Ort. Du liegst zu Hause, an einem ruhigen Ort. Im Anschluss besprechen wir, was sich gezeigt hat.
         </p>
         <div class="preis">120 €<small>eine Stunde · enthalten sind Vor- und Nachgespräch</small></div>
       </article>
@@ -653,10 +1001,7 @@ p+p{margin-top:1.1rem}
         <span class="bereich">Vor Ort</span>
         <h3>Reiki Einzelsitzung</h3>
         <p>
-          Im Vorgespräch klären wir dein Anliegen. Während der Behandlung erfährt dein
-          Körper eine Harmonisierung, bestehende Blockaden werden aufgehoben. Zusätzlich
-          empfange ich Bilder und Botschaften, die für dich wichtig und richtungsweisend
-          sind. Diese besprechen wir im Anschluss.
+          Im Vorgespräch klären wir dein Anliegen. Während der Behandlung erfährt dein Körper eine Harmonisierung, bestehende Blockaden werden aufgehoben. Zusätzlich empfange ich Bilder und Botschaften, die für dich wichtig und richtungsweisend sind. Diese besprechen wir im Anschluss.
         </p>
         <div class="preis">150 €<small>anderthalb Stunden in Staufen · enthalten sind Vor- und Nachgespräch</small></div>
       </article>
@@ -665,11 +1010,7 @@ p+p{margin-top:1.1rem}
         <span class="bereich">Drei Tage am Stück</span>
         <h3>Reiki-Intensivtage</h3>
         <p>
-          Wenn du das Gefühl hast, in der Stagnation zu verharren, oder du eine schnelle
-          Entscheidungshilfe benötigst, bieten sich drei aufeinanderfolgende
-          Behandlungstage an. Nach jeder Sitzung gibt es Anregungen, die du bis zum
-          nächsten Tag umsetzt. So steigen wir von Tag zu Tag auf einem neuen
-          Energielevel ein.
+          Wenn du das Gefühl hast, in der Stagnation zu verharren, oder du eine schnelle Entscheidungshilfe benötigst, bieten sich drei aufeinanderfolgende Behandlungstage an. Nach jeder Sitzung gibt es Anregungen, die du bis zum nächsten Tag umsetzt. So steigen wir von Tag zu Tag auf einem neuen Energielevel ein.
         </p>
         <div class="preis">450 €<small>drei Behandlungen vor Ort, je anderthalb Stunden</small></div>
       </article>
@@ -678,10 +1019,7 @@ p+p{margin-top:1.1rem}
         <span class="bereich">Über einen längeren Zeitraum</span>
         <h3>10er-Abo für eine gute Selbstfürsorge</h3>
         <p>
-          Diese Serie bietet sich für Menschen an, die über einen längeren Zeitraum stark
-          gefordert sind – zum Beispiel während einer Trennungsphase, einer
-          Sterbebegleitung, einer chronischen Erkrankung oder anderen erschöpfenden
-          Zuständen. Du erhältst eine engmaschige und zuverlässige Begleitung.
+          Diese Serie bietet sich für Menschen an, die über einen längeren Zeitraum stark gefordert sind – zum Beispiel während einer Trennungsphase, einer Sterbebegleitung, einer chronischen Erkrankung oder anderen erschöpfenden Zuständen. Du erhältst eine engmaschige und zuverlässige Begleitung.
         </p>
         <div class="preis">1.200 €<small>zehn Behandlungen über die Ferne, eine geschenkt<br>vor Ort 1.500 € für zehn Sitzungen, eine geschenkt</small></div>
       </article>
@@ -690,9 +1028,7 @@ p+p{margin-top:1.1rem}
         <span class="bereich">Zum Verschenken</span>
         <h3>Gutscheine</h3>
         <p>
-          Für Behandlungen vor Ort und über die Ferne, in frei wählbarer Höhe. Häufig
-          sind es Angehörige, die jemandem eine Begleitung schenken möchten – gerade in
-          Zeiten, in denen man sich selbst nichts gönnt.
+          Für Behandlungen vor Ort und über die Ferne, in frei wählbarer Höhe. Häufig sind es Angehörige, die jemandem eine Begleitung schenken möchten – gerade in Zeiten, in denen man sich selbst nichts gönnt.
         </p>
         <div class="preis">frei wählbar<small>schreib mir, was dir vorschwebt</small></div>
       </article>
@@ -706,13 +1042,10 @@ p+p{margin-top:1.1rem}
     <div class="praxis">
       <h3>So läuft ein Termin vor Ort ab</h3>
       <p>
-        In der Regel findet ein Vorgespräch statt. Anschließend wirst du liegend oder
-        sitzend behandelt. Meine Hände lege ich entweder direkt auf deinen Körper auf
-        oder halte sie knapp darüber. Im Anschluss besprechen wir, was sich gezeigt hat.
+        In der Regel findet ein Vorgespräch statt. Du trägst bequeme Kleidung und wirst liegend behandelt. Meine Hände lege ich entweder direkt auf deinen Körper auf oder halte sie knapp darüber. Im Anschluss besprechen wir, was sich gezeigt hat.
       </p>
       <p style="margin-top:.8rem;font-size:.92rem;opacity:.85">
-        Meine Praxis liegt im Hofmattenweg 6 in Staufen im Breisgau. Parken kannst du
-        direkt in der Nähe, aus Freiburg sind es rund fünfundzwanzig Minuten.
+        Meine Praxis liegt im Hofmattenweg 6 in Staufen im Breisgau. Parken kannst du direkt in der Nähe, aus Freiburg sind es rund fünfundzwanzig Minuten.
       </p>
     </div>
   </div>
@@ -725,61 +1058,45 @@ p+p{margin-top:1.1rem}
     <h2>Eine Erweiterung des eigenen Horizonts.</h2>
     <div class="satz">
       <p>
-        Da es mir wichtig ist, genügend Zeit und Raum für Fragen und das Üben zur
-        Verfügung zu stellen, besteht ein Seminar aus höchstens vier Teilnehmenden.
-        Enthalten sind die Vorab-Session, die Einzeleinweihungen, ein gedrucktes Skript,
-        das Zertifikat, Vor- und Nachgespräch, Übungsmaterial und die Betreuung danach.
-        Das Mittagessen im Gasthaus zahlst du selbst.
+        Da es mir wichtig ist, genügend Zeit und Raum für Fragen und das Üben zur Verfügung zu stellen, besteht ein Seminar aus höchstens vier Teilnehmenden. Enthalten sind die Einzeleinweihungen, ein gedrucktes Skript, das Zertifikat, Vor- und Nachgespräch sowie Übungsmaterial.
+      </p>
+      <p>
+        In allen Reiki-Seminaren lehre ich nach der Usui-Methode des natürlichen Heilens.
       </p>
     </div>
 
     <div class="angebote" style="margin-top:2rem">
       <article class="karte karte-ferne">
-        <span class="bereich">Usui-Methode</span>
         <h3>Reiki, erster Grad</h3>
         <p>
-          Du erhältst vier Einweihungen, die dich befähigen, dich und andere zu behandeln.
-          Während der Chakra-Aktivierungen werden diese gereinigt, sodass Altes gehen darf
-          und Neues aufgenommen wird. Die Aktivierung findet einzeln statt, nicht in der
-          Gruppe – so hat jede Schülerin einen geschützten Raum, damit das Erlebte
-          nachwirken kann. Vorkenntnisse sind nicht nötig.
+          Du erhältst vier Einweihungen, die dich befähigen, dich und andere zu behandeln. Während der Chakra-Aktivierungen werden diese gereinigt, sodass Altes gehen darf und Neues aufgenommen wird. Es geht vor allem um Urvertrauen, Intuition und Gefühle..
         </p>
-        <div class="preis">550 €<small>zwei Tage, inklusive Vorab-Session</small></div>
+        <div class="preis">450 €<small>zwei Tage</small></div>
+        <p style="margin-top: 1rem; font-size: .8rem; opacity: .8;">Voraussetzung ist eine Reiki-Behandlung vor Ort oder über die Ferne. Diese ist nicht in der Seminargebühr inbegriffen.</p>
       </article>
 
       <article class="karte karte-naehe">
-        <span class="bereich">Usui-Methode</span>
         <h3>Reiki, zweiter Grad</h3>
         <p>
-          Du erhältst eine Einweihung und bekommst Symbole an die Hand, mit denen du
-          Fernreiki schicken sowie dein inneres Kind und deine Seele kontaktieren kannst.
-          Zudem ist es dir möglich, Situationsheilung anzuwenden und mit der Mentalheilung
-          alte Verhaltens- und Gedankenmuster zu lösen. Voraussetzung ist der erste Grad.
+          Du erhältst eine Einweihung, die deine Schwingung um das 10 bis 15 fache anhebt. Zudem bekommst du Symbole an die Hand, mit denen du Fernreiki schicken sowie dein inneres Kind und deine Seele kontaktieren kannst. Desweiteren ist es dir möglich, Situationsheilung anzuwenden und mit der Mentalheilung alte Verhaltens- und Gedankenmuster zu lösen. Voraussetzung ist der erste Grad.
         </p>
-        <div class="preis">700 €<small>zwei Tage, inklusive Vorab-Session</small></div>
+        <div class="preis">550 €<small>zwei Tage</small></div>
       </article>
 
       <article class="karte karte-abo">
-        <span class="bereich">Usui-Methode</span>
         <h3>Reiki, dritter Grad – Meistergrad</h3>
         <p>
-          Dieser Grad ist für Menschen sinnvoll, die Reiki und die damit verbundene
-          Philosophie als ihren Lebensweg betrachten und bereit sind, ihre spirituelle
-          Anbindung auch im Alltag zu leben, zum Wohle aller. Neben dem ersten und zweiten
-          Grad sind zusätzliche, individuell abgestimmte Seminare Voraussetzung. Der
-          Meistergrad befähigt auch zur Ausbildung als Reikilehrerin.
+          Dieser Grad ist für Menschen sinnvoll, die Reiki und die damit verbundene Philosophie als ihren Lebensweg betrachten und bereit sind, ihre spirituelle Anbindung auch im Alltag zu leben, zum Wohle aller. Neben dem ersten und zweiten Grad sind zusätzliche, individuell abgestimmte Seminare Voraussetzung. Der Meistergrad befähigt auch zur Ausbildung als Reikilehrer/in.
         </p>
-        <div class="preis">1.350 €<small>nach Absprache, inklusive Vorab-Session · ab Januar 2027 dann 1.550 €</small></div>
+        <div class="preis">1.200 €<small>inklusive Vorab-Session</small></div>
       </article>
 
       <article class="karte karte-intensiv">
-        <span class="bereich">Für Absolventinnen</span>
         <h3>Auffrischung und Vertiefung</h3>
         <p>
-          Für alle, die schon bei mir gelernt haben und wieder üben, nachfragen oder
-          tiefer gehen möchten. Termine nach Absprache.
+          Für alle, die schon bei mir gelernt haben und wieder üben, nachfragen oder tiefer gehen möchten. Termine nach Absprache.
         </p>
-        <div class="preis">auf Anfrage<small>Preis noch festzulegen</small></div>
+        <div class="preis">auf Anfrage<small>Preis nach Absprache</small></div>
       </article>
     </div>
 
@@ -790,7 +1107,7 @@ p+p{margin-top:1.1rem}
 
     <div class="marke">Nächste Termine</div>
     <div class="termin">
-      <div class="termin-datum">Platzhalter · Termin 1</div>
+      <div class="termin-datum">20./21. Feb.'27</div>
       <div class="termin-titel">Reiki, erster Grad · zwei Tage in Staufen</div>
       <div class="termin-frei">noch 2 Plätze</div>
     </div>
@@ -808,12 +1125,10 @@ p+p{margin-top:1.1rem}
   <div class="innen">
     <div class="marke">Damit du weißt, woran du bist</div>
     <div class="hinweis">
-      Meine Behandlungen ersetzen keinen Arzt, Heilpraktiker oder Psychotherapeuten.
-      Ich stelle keine Diagnosen und gebe keine Heilversprechen.
+      Meine Behandlungen ersetzen keinen Arzt, Heilpraktiker oder Psychotherapeuten. Ich stelle keine Diagnosen und gebe keine Heilversprechen.
     </div>
     <p class="satz" style="margin-top:1.6rem">
-      Und wenn wir feststellen, dass Reiki für dich nicht die richtige Methode ist,
-      sage ich dir das und empfehle dir eine andere Behandlungsart weiter.
+      Und wenn wir feststellen, dass Reiki nicht die richtige Behandlungsmethode für dich ist, besprechen wir, was besser zu dir passen könnte.
     </p>
 
   </div>
@@ -830,21 +1145,15 @@ p+p{margin-top:1.1rem}
         <div class="stimme-name">Stephanie</div>
         <span class="stimme-rolle">Seit fünfzehn Jahren begleitet</span>
         <p>
-          Ich arbeite bereits seit unglaublichen 15 Jahren mit Catherine – sie hat mich
-          durch sämtliche Lebensphasen, Umbrüche und Herausforderungen begleitet und mich
-          immer professionell, konstruktiv, gut gelaunt und gelassen unterstützt. Ein Vorbild!
+          Ich arbeite bereits seit unglaublichen 15 Jahren mit Catherine – sie hat mich durch sämtliche Lebensphasen, Umbrüche und Herausforderungen begleitet und mich immer professionell, konstruktiv, gut gelaunt und gelassen unterstützt. Ein Vorbild!
         </p>
         <details>
           <summary>Weiterlesen</summary>
           <p>
-            Ihren Reiki-Behandlungen und Einweihungsseminaren bis zum Lehrergrad habe ich
-            viel zu verdanken. Viel Weiterentwicklung, viel Wachstum, viel Inspiration.
-            Dabei hat sie mich immer ermutigt, meinen ureigenen Weg zu finden und zu gehen.
+            Ihren Reiki-Behandlungen und Einweihungsseminaren bis zum Lehrergrad habe ich viel zu verdanken. Viel Weiterentwicklung, viel Wachstum, viel Inspiration. Dabei hat sie mich immer ermutigt, meinen ureigenen Weg zu finden und zu gehen.
           </p>
           <p>
-            Ich schätze Catherine aber nicht nur als „Energie-Profi“ mit einem
-            Erfahrungsschatz sondergleichen, sondern wegen ihrer authentischen und
-            liebenswerten Art auch als Mensch und mittlerweile als Freundin. Danke für alles!
+            Ich schätze Catherine aber nicht nur als „Energie-Profi“ mit einem Erfahrungsschatz sondergleichen, sondern wegen ihrer authentischen und liebenswerten Art auch als Mensch und mittlerweile als Freundin. Danke für alles!
           </p>
         </details>
       </article>
@@ -853,21 +1162,15 @@ p+p{margin-top:1.1rem}
         <div class="stimme-name">Verena</div>
         <span class="stimme-rolle">Behandlung und Ausbildung</span>
         <p>
-          Schon beim ersten Kontakt mit Catherine stellte es sich für mich heraus, dass ich
-          eine Energiearbeiterin getroffen hatte, die in ihrer ganzen Arbeit freundlich und
-          voller Herzenswärme, klar und bewusst ist.
+          Schon beim ersten Kontakt mit Catherine stellte es sich für mich heraus, dass ich eine Energiearbeiterin getroffen hatte, die in ihrer ganzen Arbeit freundlich und voller Herzenswärme, klar und bewusst ist.
         </p>
         <details>
           <summary>Weiterlesen</summary>
           <p>
-            Ein spiritueller Mensch mit Bodenhaftung, Herz und vollem Kontakt zum Universum
-            und das ohne Ausleben des eigenen Egos. Eine seltene Spezies.
+            Ein spiritueller Mensch mit Bodenhaftung, Herz und vollem Kontakt zum Universum und das ohne Ausleben des eigenen Egos. Eine seltene Spezies.
           </p>
           <p>
-            Catherines Behandlungen bringen Klarheit, Ausgleich, Mut und Energie. Man geht
-            gestärkt weiter auf seinem Weg. Ihre Ausbildungsarbeit für Reiki ist fundiert,
-            strukturiert und sie ist eine hervorragende Lehrerin, die ihre Arbeit liebt und
-            gewissenhaft ausführt.
+            Catherines Behandlungen bringen Klarheit, Ausgleich, Mut und Energie. Man geht gestärkt weiter auf seinem Weg. Ihre Ausbildungsarbeit für Reiki ist fundiert, strukturiert und sie ist eine hervorragende Lehrerin, die ihre Arbeit liebt und gewissenhaft ausführt.
           </p>
         </details>
       </article>
@@ -876,28 +1179,18 @@ p+p{margin-top:1.1rem}
         <div class="stimme-name">Julia</div>
         <span class="stimme-rolle">Alle Reiki-Grade bis zum Lehrergrad</span>
         <p>
-          Ich kenne Catherine seit 2011 und habe von ihr alle Reiki-Grade plus den
-          Lehrergrad erhalten – dazu in den Jahren viele viele Reiki-Sessions, immer wenn
-          ich mit einem persönlichen Thema einfach nicht weiterkam.
+          Ich kenne Catherine seit 2011 und habe von ihr alle Reiki-Grade plus den Lehrergrad erhalten – dazu in den Jahren viele viele Reiki-Sessions, immer wenn ich mit einem persönlichen Thema einfach nicht weiterkam.
         </p>
         <details>
           <summary>Weiterlesen</summary>
           <p>
-            Ich könnte mir keine bessere Reiki-Lehrerin vorstellen und ihre Reikisessions
-            sind immer so aufschlussreich und hilfreich! Dazu liebe ich Catherines herzliche,
-            ruhige, dezente und super professionelle Art der Arbeit, gepaart mit einer
-            angenehmen Bodenständigkeit.
+            Ich könnte mir keine bessere Reiki-Lehrerin vorstellen und ihre Reikisessions sind immer so aufschlussreich und hilfreich! Dazu liebe ich Catherines herzliche, ruhige, dezente und super professionelle Art der Arbeit, gepaart mit einer angenehmen Bodenständigkeit.
           </p>
           <p>
-            Und wenn es vielleicht übertrieben klingt (ist es aber nicht!): Ohne Reiki und
-            Catherine wäre ich definitiv nicht der Mensch, der ich heute bin – wenn ich nicht
-            all die Energie plus die wertvollen Botschaften der Geistigen Welt erhalten hätte,
-            ergänzt durch Catherines großes Wissen, ihre Impulse, ihre liebevolle und
-            authentische Art im Überbringen der Botschaften.
+            Und wenn es vielleicht übertrieben klingt (ist es aber nicht!): Ohne Reiki und Catherine wäre ich definitiv nicht der Mensch, der ich heute bin – wenn ich nicht all die Energie plus die wertvollen Botschaften der Geistigen Welt erhalten hätte, ergänzt durch Catherines großes Wissen, ihre Impulse, ihre liebevolle und authentische Art im Überbringen der Botschaften.
           </p>
           <p>
-            Wer sich in Reiki ausbilden lassen möchte oder eine Reiki-Session buchen möchte:
-            Catherine ist von Herzen meine größte Empfehlung!
+            Wer sich in Reiki ausbilden lassen möchte oder eine Reiki-Session buchen möchte: Catherine ist von Herzen meine größte Empfehlung!
           </p>
         </details>
       </article>
@@ -906,21 +1199,15 @@ p+p{margin-top:1.1rem}
         <div class="stimme-name">Anne</div>
         <span class="stimme-rolle">Begleitung einer ganzen Familie</span>
         <p>
-          Was für ein Glück, dass wir Catherine Wünnenberg mit ihren Fähigkeiten kennen
-          gelernt haben. Sie begleitet unsere Familie nun schon seit einigen Jahren bei
-          vielfältigen Fragen, Stationen und Entwicklungen.
+          Was für ein Glück, dass wir Catherine Wünnenberg mit ihren Fähigkeiten kennen gelernt haben. Sie begleitet unsere Familie nun schon seit einigen Jahren bei vielfältigen Fragen, Stationen und Entwicklungen.
         </p>
         <details>
           <summary>Weiterlesen</summary>
           <p>
-            Wir schätzen ihre heiter-gelassene Art bei gleichzeitig hoher Kompetenz und
-            Professionalität. Sie verbindet Spiritualität, gesunden Menschenverstand und das
-            Wissen um Psyche, Geist und Körper auf einzigartige Art und Weise. Zum großen
-            Glück für ihre Klienten.
+            Wir schätzen ihre heiter-gelassene Art bei gleichzeitig hoher Kompetenz und Professionalität. Sie verbindet Spiritualität, gesunden Menschenverstand und das Wissen um Psyche, Geist und Körper auf einzigartige Art und Weise. Zum großen Glück für ihre Klienten.
           </p>
           <p>
-            Herzlichen Dank für alle richtungsweisenden und erhellenden Behandlungen bisher,
-            liebe Catherine.
+            Herzlichen Dank für alle richtungsweisenden und erhellenden Behandlungen bisher, liebe Catherine.
           </p>
         </details>
       </article>
@@ -944,10 +1231,7 @@ p+p{margin-top:1.1rem}
     <h2>Ich freue mich, von dir zu hören.</h2>
     <div class="satz">
       <p>
-        Manchmal braucht es einfach nur neuen Schwung, Klarheit und alltagstaugliche
-        Impulse, um wieder ganz bei sich anzukommen. Wenn du spürst, dass es Zeit für
-        Veränderung, Entlastung und neue Klarheit ist, begleite ich dich gerne ein Stück
-        auf deinem Weg.
+        Manchmal braucht es einfach nur neuen Schwung, Klarheit und alltagstaugliche Impulse, um wieder ganz bei sich anzukommen. Wenn du spürst, dass es Zeit für Veränderung, Entlastung und neue Klarheit ist, begleite ich dich gerne ein Stück auf deinem Weg.
       </p>
       <p>
         Lass uns zuerst miteinander sprechen – kostenlos, unverbindlich, am Telefon.
@@ -988,23 +1272,21 @@ p+p{margin-top:1.1rem}
         <span>Setz mich auf die Warteliste für das nächste Reiki-Seminar.</span>
       </label>
       <p class="formhinweis">
-        Ich melde mich innerhalb von zwei Werktagen bei dir. Deine Angaben verwende ich
-        nur, um dir zu antworten. Bitte schreib mir hier noch keine Angaben zu deiner
-        Gesundheit – das besprechen wir persönlich.
+        Ich melde mich innerhalb von zwei Werktagen bei dir. Deine Angaben verwende ich nur, um dir zu antworten. Bitte schreib mir hier noch keine Angaben zu deiner Gesundheit – das besprechen wir persönlich.
       </p>
       <button class="absenden" type="submit">Nachricht senden</button>
     </form>
 
     <p class="kontaktdaten">
       Catherine Wünnenberg · Hofmattenweg 6 · 79219 Staufen im Breisgau<br>
-      Telefon <a href="tel:+4916033968333">+49 160 33 968 33</a>
+      Telefon <a href="tel:+4916033968333">+49 160 33 968 33</a><br>
+      E-Mail <a href="mailto:praxis@catherine-wuennenberg.de">praxis@catherine-wuennenberg.de</a>
     </p>
 
     <div style="margin-top:3rem">
       <h3>Ein Brief im Monat</h3>
       <p style="font-size:.96rem;max-width:48ch;opacity:.85">
-        Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten
-        Seminartermine.
+        Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
       </p>
       <div class="eingabe">
         <input type="email" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse">
@@ -1030,18 +1312,6 @@ p+p{margin-top:1.1rem}
 
 <script>
 (function(){
-  var knopf=document.getElementById('videoknopf'),rahmen=document.getElementById('videorahmen');
-  if(knopf&&rahmen){
-    knopf.addEventListener('click',function(){
-      var f=document.createElement('iframe');
-      f.src='https://1drv.ms/v/c/6f11f05c853a43af/IQRLtcjfQhrCQ4E-gcNiAqaBASFoQm57Bp_8sJ2xFpTE2G4?width=720&height=1280';
-      f.setAttribute('allowfullscreen','');
-      f.setAttribute('allow','autoplay; fullscreen');
-      f.setAttribute('title','Video über mich und meine Arbeit');
-      rahmen.innerHTML='';
-      rahmen.appendChild(f);
-    });
-  }
   var knoten=Array.prototype.slice.call(document.querySelectorAll('.knoten'));
   if(!knoten.length||!('IntersectionObserver' in window))return;
   var karte={};
