@@ -505,21 +505,7 @@ p+p{margin-top:1.1rem}
   border-radius:6px;overflow:hidden;background:var(--eis-hell);
   box-shadow:0 12px 26px rgba(10,59,69,.12);
 }
-.video-rahmen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--eis-hell)}
-.video-start{
-  position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:1.1rem;padding:1.6rem;
-  text-align:center;color:var(--petrol-tief);
-  background:rgba(242,249,250,.18);
-}
-.video-knopf{
-  display:inline-flex;align-items:center;gap:.6rem;border:none;border-radius:100px;
-  background:var(--bernstein);color:var(--petrol-tief);
-  font-family:var(--text);font-weight:600;font-size:1rem;
-  padding:.85rem 1.8rem;cursor:pointer;transition:background .35s ease,transform .35s ease;
-}
-.video-knopf:hover,.video-knopf:focus-visible{background:#C98C1F;transform:scale(1.03)}
-.video-hinweis{font-size:.85rem;max-width:42ch;opacity:.92;line-height:1.6}
+.video-rahmen video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0f5561}
 
 /* Handlungsaufruf */
 .schritt{
@@ -928,8 +914,8 @@ section#hinweis .innen{position:relative;z-index:1}
     <div class="marke" style="margin-top:3rem">Bevor du schreibst</div>
     <h3 style="font-size:1.5rem;margin-bottom:1rem">Über mich und meine Arbeit:</h3>
     <figure class="video-rahmen" id="videorahmen">
-      <video controls preload="metadata" playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0f5561;" aria-label="Video über Catherine Wünnenberg">
-        <source src="file:///D:/OneDrive/05%20Mentora/%C3%9Cber%20mich.mp4" type="video/mp4">
+      <video controls preload="metadata" playsinline poster="assets/ueber-mich-poster.jpg" aria-label="Video über Catherine Wünnenberg">
+        <source src="assets/ueber-mich.mp4" type="video/mp4">
         Dein Browser unterstützt keine HTML5-Videos.
       </video>
     </figure>
