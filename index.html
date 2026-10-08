@@ -731,18 +731,20 @@ section#hinweis .innen{position:relative;z-index:1}
 }
 
 /* Newsletter */
-.eingabe{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.1rem;max-width:27rem}
+.brief{display:grid;gap:1rem;max-width:34rem;margin-top:1.1rem}
+.brief .wahl{font-size:.88rem;line-height:1.55}
+.brief .wahl input{margin-top:.25rem}
+.brief .wahl a{color:inherit;text-decoration:none;box-shadow:inset 0 -1px 0 var(--bernstein)}
+.brief-status{font-size:.92rem;min-height:1.4em}
+.brief-status[data-art="fehler"]{color:#9a3b2e}
+.brief-status[data-art="ok"]{color:var(--petrol);font-weight:600}
+.falle{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.eingabe{display:flex;flex-wrap:wrap;gap:.6rem}
 .eingabe input{
   flex:1 1 12rem;border:2px solid var(--petrol);border-radius:100px;background:#fff;
   padding:.75rem 1.2rem;font-family:var(--text);font-size:.95rem;color:var(--petrol-tief);
 }
 .eingabe input:focus-visible{outline:3px solid var(--bernstein);outline-offset:1px}
-.eingabe button{
-  border:none;border-radius:100px;background:var(--petrol);color:var(--eis-hell);
-  font-family:var(--text);font-weight:600;font-size:.85rem;letter-spacing:.06em;
-  padding:.78rem 1.5rem;cursor:pointer;transition:background .35s ease;
-}
-.eingabe button:hover{background:var(--petrol-tief)}
 .versprechen{margin-top:.8rem;font-size:.83rem;opacity:.75}
 
 .kontaktdaten{margin-top:2rem;font-size:1rem;line-height:2}
@@ -1278,11 +1280,22 @@ section#hinweis .innen{position:relative;z-index:1}
       <p style="font-size:.96rem;max-width:48ch;opacity:.85">
         Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
       </p>
-      <div class="eingabe">
-        <input type="email" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse">
-        <button type="button">Anmelden</button>
-      </div>
-      <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit.</p>
+      <form class="brief" id="brief" method="POST" novalidate
+            action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
+        <div class="eingabe">
+          <input type="text" name="VORNAME" placeholder="Dein Vorname" aria-label="Vorname" autocomplete="given-name" required>
+          <input type="email" name="EMAIL" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" autocomplete="email" required>
+        </div>
+        <label class="wahl">
+          <input type="checkbox" name="OPT_IN" value="1" required>
+          <span>Ja, ich möchte den Brief im Monat erhalten. Meine Daten werden über Brevo verarbeitet, mehr dazu in der <a href="datenschutz.html#newsletter">Datenschutzerklärung</a>.</span>
+        </label>
+        <input type="text" name="email_address_check" value="" class="falle" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="de">
+        <button class="absenden" type="submit">Anmelden</button>
+        <p class="brief-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit über den Link in jedem Brief.</p>
     </div>
   </div>
 </section>
@@ -1310,6 +1323,34 @@ section#hinweis .innen{position:relative;z-index:1}
     es.forEach(function(e){var k=karte[e.target.id];if(k)k.setAttribute('data-aktiv',e.isIntersecting?'ja':'nein');});
   },{rootMargin:'-45% 0px -45% 0px'});
   Object.keys(karte).forEach(function(id){var el=document.getElementById(id);if(el)beob.observe(el);});
+})();
+
+(function(){
+  var form=document.getElementById('brief');
+  if(!form)return;
+  var status=form.querySelector('.brief-status');
+  var knopf=form.querySelector('button');
+  function melde(text,art){status.textContent=text;status.setAttribute('data-art',art);}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=form.elements.VORNAME, mail=form.elements.EMAIL, zustimmung=form.elements.OPT_IN;
+    if(!name.value.trim()){melde('Bitte gib deinen Vornamen ein.','fehler');name.focus();return;}
+    if(!mail.value.trim()||!mail.checkValidity()){melde('Bitte gib eine gültige E-Mail-Adresse ein.','fehler');mail.focus();return;}
+    if(!zustimmung.checked){melde('Bitte bestätige, dass du den Brief erhalten möchtest.','fehler');zustimmung.focus();return;}
+    knopf.disabled=true;
+    melde('Einen Moment …','');
+    fetch(form.action+'?isAjax=1',{method:'POST',body:new FormData(form)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d||!d.success)throw new Error();
+        form.reset();
+        melde('Fast geschafft! Bitte schau in dein Postfach und bestätige deine Anmeldung über den Link in der E-Mail.','ok');
+      })
+      .catch(function(){
+        melde('Das hat leider nicht geklappt. Bitte versuch es später noch einmal oder schreib mir eine E-Mail.','fehler');
+      })
+      .then(function(){knopf.disabled=false;});
+  });
 })();
 </script>
 
