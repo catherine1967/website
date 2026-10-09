@@ -465,13 +465,13 @@ p+p{margin-top:1.1rem}
   color:var(--petrol-tief);
   text-shadow:0 2px 0 rgba(255,255,255,.35);
 }
-.auftakt-antwort{margin-top:1.8rem;max-width:46ch;font-size:1.12rem;color:var(--petrol-tief);opacity:.94}
+.auftakt-antwort{margin-top:1.8rem;max-width:46ch;font-size:clamp(0.85rem,1.25vw,1.45rem);color:var(--petrol-tief);opacity:.94}
 .hero-claim{
   grid-column:1 / -1;
   max-width:100%;
   margin:0.6rem 0 0;
   font-family:var(--display);font-weight:500;font-style:normal;
-  font-size:clamp(0.9rem,1.45vw,1.7rem);line-height:1.28;letter-spacing:-.01em;
+  font-size:clamp(0.85rem,1.25vw,1.45rem);line-height:1.28;letter-spacing:-.01em;
   color:var(--petrol-tief);
 }
 @media(min-width:880px){
@@ -491,6 +491,16 @@ p+p{margin-top:1.1rem}
   transform:translateY(6px);
 }
 .portrait img{width:100%;height:auto;display:block;filter:saturate(0.72) contrast(0.94) brightness(1.03) sepia(0.08)}
+/* Smartphone: Portrait zwischen Überschrift und Einleitungssatz */
+@media(max-width:879px){
+  .auftakt-raster{gap:0}
+  .auftakt-text{display:contents}
+  .auftakt-raster .h-gross{order:1}
+  .auftakt-raster .portrait{order:2;margin-top:1.8rem}
+  .auftakt-raster .auftakt-antwort{order:3}
+  .auftakt-raster .schritt{order:4;justify-self:start}
+  .auftakt-raster .hero-claim{order:5;margin-top:2.2rem}
+}
 
 /* Video */
 .video-rahmen{
@@ -802,7 +812,7 @@ section#hinweis .innen{position:relative;z-index:1}
 <!-- Auftakt -->
 <section class="auftakt" id="auftakt">
   <div class="innen auftakt-raster">
-    <div>
+    <div class="auftakt-text">
       <h1 class="h-gross an" style="--d:200ms; font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.12; max-width: 15ch;">Wenn du spürst, dass es so nicht mehr<br>weitergehen kann, begleitet dich Reiki<br>auf deinem Weg!</h1>
       <p class="auftakt-antwort an" style="--d:380ms; max-width: 46ch;">
         Als ehemalige Physiotherapeutin verbinde ich seit über 20 Jahren körpertherapeutische Erfahrung mit dem Kontakt zur geistigen Welt.
