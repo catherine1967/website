@@ -538,9 +538,15 @@ section#reiki .satz > p:last-child{margin-bottom:0}
   font-size:clamp(1.15rem,2.5vw,1.45rem);line-height:1.4;
   padding:.85rem 0 .85rem 2.2rem;position:relative;
 }
+/* Aufzählzeichen: geschwungener Funke */
+.zustaende li::before,.begleitung li::before{
+  content:"";position:absolute;left:.15em;
+  width:.7em;height:.7em;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0C12.6 7 17 11.4 24 12C17 12.6 12.6 17 12 24C11.4 17 7 12.6 0 12C7 11.4 11.4 7 12 0Z'/%3E%3C/svg%3E") center/contain no-repeat;
+}
 .zustaende li::before{
-  content:"";position:absolute;left:0;top:1.5rem;
-  width:10px;height:10px;border-radius:50%;background:var(--petrol);
+  top:calc(.85rem + .35em);background:var(--petrol);
 }
 .band-petrol .zustaende li::before{background:var(--bernstein)}
 .dann{
@@ -553,8 +559,7 @@ section#reiki .satz > p:last-child{margin-bottom:0}
   padding:.55rem 0 .55rem 1.8rem;position:relative;font-size:1.05rem;
 }
 .begleitung li::before{
-  content:"";position:absolute;left:0;top:1.25rem;
-  width:7px;height:7px;border-radius:50%;background:var(--bernstein);
+  top:calc(.55rem + .525em);background:var(--bernstein);
 }
 
 /* Ablauf */
