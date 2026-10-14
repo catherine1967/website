@@ -1304,36 +1304,36 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
       </div>
     </div>
 
-    <form class="formular" onsubmit="return false;">
+    <form class="formular" id="kontakt-form" method="POST" novalidate action="https://formspree.io/f/mdeapowy">
       <fieldset class="worum">
         <legend>Worum geht’s?</legend>
         <label class="wahl" for="f-gespraech">
-          <input type="checkbox" id="f-gespraech" name="gespraech" checked>
+          <input type="checkbox" id="f-gespraech" name="Kennenlerngespräch" value="ja" checked>
           <span>Ich möchte gern das kostenlose Kennenlerngespräch.</span>
         </label>
         <label class="wahl" for="f-warteliste">
-          <input type="checkbox" id="f-warteliste" name="warteliste">
+          <input type="checkbox" id="f-warteliste" name="Warteliste Reiki-Seminar" value="ja">
           <span>Setz mich auf die Warteliste für das nächste Reiki-Seminar.</span>
         </label>
       </fieldset>
       <div class="paar">
         <div>
           <label for="f-name">Dein Name</label>
-          <input type="text" id="f-name" name="name" autocomplete="name">
+          <input type="text" id="f-name" name="name" autocomplete="name" required>
         </div>
         <div>
           <label for="f-mail">Deine E-Mail-Adresse</label>
-          <input type="email" id="f-mail" name="email" autocomplete="email">
+          <input type="email" id="f-mail" name="email" autocomplete="email" required>
         </div>
       </div>
       <div>
         <label for="f-anliegen">Dein Anliegen</label>
-        <textarea id="f-anliegen" name="anliegen" rows="6"></textarea>
+        <textarea id="f-anliegen" name="anliegen" rows="6" required></textarea>
       </div>
       <div>
         <label for="f-quelle">Wie hast du mich gefunden?</label>
         <select id="f-quelle" name="quelle">
-          <option>Bitte auswählen</option>
+          <option value="">Bitte auswählen</option>
           <option>Empfehlung von jemandem, den ich kenne</option>
           <option>Instagram</option>
           <option>Suchmaschine</option>
@@ -1343,9 +1343,12 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
         </select>
       </div>
       <p class="formhinweis">
-        Ich melde mich innerhalb von zwei Werktagen bei dir. Deine Angaben verwende ich nur, um dir zu antworten.
+        Ich melde mich innerhalb von zwei Werktagen bei dir. Deine Angaben verwende ich nur, um dir zu antworten. Die Nachricht wird über Formspree übermittelt, mehr dazu in der <a href="datenschutz.html#kontaktformular">Datenschutzerklärung</a>.
       </p>
+      <input type="text" name="_gotcha" class="falle" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="_subject" value="Neue Anfrage über die Website">
       <button class="absenden" type="submit">Nachricht senden</button>
+      <p class="brief-status" role="status" aria-live="polite"></p>
     </form>
 
     <div class="kontaktdaten">
@@ -1441,6 +1444,33 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
         if(!d||!d.success)throw new Error();
         form.reset();
         melde('Fast geschafft! Bitte schau in dein Postfach und bestätige deine Anmeldung über den Link in der E-Mail.','ok');
+      })
+      .catch(function(){
+        melde('Das hat leider nicht geklappt. Bitte versuch es später noch einmal oder schreib mir eine E-Mail.','fehler');
+      })
+      .then(function(){knopf.disabled=false;});
+  });
+})();
+
+(function(){
+  var form=document.getElementById('kontakt-form');
+  if(!form)return;
+  var status=form.querySelector('.brief-status');
+  var knopf=form.querySelector('button');
+  function melde(text,art){status.textContent=text;status.setAttribute('data-art',art);}
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=form.elements.name, mail=form.elements.email, anliegen=form.elements.anliegen;
+    if(!name.value.trim()){melde('Bitte gib deinen Namen ein.','fehler');name.focus();return;}
+    if(!mail.value.trim()||!mail.checkValidity()){melde('Bitte gib eine gültige E-Mail-Adresse ein.','fehler');mail.focus();return;}
+    if(!anliegen.value.trim()){melde('Bitte schreib mir kurz, worum es geht.','fehler');anliegen.focus();return;}
+    knopf.disabled=true;
+    melde('Einen Moment …','');
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(!r.ok)throw new Error();
+        form.reset();
+        melde('Danke für deine Nachricht! Ich melde mich innerhalb von zwei Werktagen bei dir.','ok');
       })
       .catch(function(){
         melde('Das hat leider nicht geklappt. Bitte versuch es später noch einmal oder schreib mir eine E-Mail.','fehler');
