@@ -648,14 +648,28 @@ section#reiki .satz > p:last-child{margin-bottom:0}
 .stimme details[open] summary{margin-bottom:.6rem}
 
 /* Formular */
-.formular{display:grid;gap:1.1rem;max-width:34rem;margin-top:1.8rem}
+.kontakt-raster{display:grid;gap:2.2rem;margin-top:1.8rem}
+@media(min-width:900px){
+  .kontakt-raster{
+    grid-template-columns:minmax(0,1fr) minmax(0,31rem);grid-template-rows:auto 1fr;
+    grid-template-areas:"satz form" "daten form";column-gap:4rem;align-items:start;
+  }
+  .kontakt-raster .satz{grid-area:satz}
+  .kontakt-raster .formular{grid-area:form}
+  .kontakt-raster .kontaktdaten{grid-area:daten}
+}
+.formular{
+  display:grid;gap:1.4rem;background:#fff;border-radius:10px;
+  padding:1.6rem 1.4rem;box-shadow:0 12px 30px rgba(10,59,69,.08);
+}
+@media(min-width:600px){.formular{padding:2.2rem 2.2rem}}
 .formular label{
   display:block;font-size:.76rem;font-weight:600;letter-spacing:.08em;
   text-transform:uppercase;color:var(--petrol);margin-bottom:.35rem;
 }
 .formular input[type=text],.formular input[type=email],.formular select,.formular textarea{
   width:100%;border:2px solid var(--petrol);border-radius:8px;background:#fff;
-  padding:.7rem 1rem;font-family:var(--text);font-size:.95rem;color:var(--petrol-tief);
+  padding:.8rem 1rem;font-family:var(--text);font-size:.95rem;color:var(--petrol-tief);
 }
 .formular textarea{min-height:6.5rem;resize:vertical}
 .formular input:focus-visible,.formular select:focus-visible,.formular textarea:focus-visible{
@@ -663,6 +677,11 @@ section#reiki .satz > p:last-child{margin-bottom:0}
 }
 .wahl{display:flex;gap:.7rem;align-items:flex-start;font-size:.95rem}
 .wahl input{margin-top:.45rem;width:1.05rem;height:1.05rem;accent-color:var(--petrol);flex:none}
+.formular .wahl{
+  display:flex;margin:0;font-size:.95rem;font-weight:400;letter-spacing:0;
+  text-transform:none;color:inherit;line-height:1.6;
+}
+.formular .wahl input{margin-top:.3rem}
 .formhinweis{font-size:.82rem;opacity:.78;line-height:1.6}
 .absenden{
   justify-self:start;border:none;border-radius:100px;background:var(--petrol);
@@ -744,7 +763,15 @@ section#hinweis .innen{position:relative;z-index:1}
 }
 
 /* Newsletter */
-.brief{display:grid;gap:1rem;max-width:34rem;margin-top:1.1rem}
+.brief-kasten{
+  display:grid;gap:2rem;margin-top:4rem;padding:1.8rem 1.4rem;
+  background:rgba(255,255,255,.6);border-top:3px solid var(--bernstein);border-radius:0 0 10px 10px;
+}
+@media(min-width:600px){.brief-kasten{padding:2.4rem 2.2rem}}
+@media(min-width:840px){.brief-kasten{margin-top:5rem}}
+@media(min-width:900px){.brief-kasten{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:4rem;align-items:start}}
+.brief-intro{font-size:.96rem;opacity:.85}
+.brief{display:grid;gap:1.1rem}
 .brief .wahl{font-size:.88rem;line-height:1.55}
 .brief .wahl input{margin-top:.25rem}
 .brief .wahl a{color:inherit;text-decoration:none;box-shadow:inset 0 -1px 0 var(--bernstein)}
@@ -760,13 +787,13 @@ section#hinweis .innen{position:relative;z-index:1}
 .eingabe input:focus-visible{outline:3px solid var(--bernstein);outline-offset:1px}
 .versprechen{margin-top:.8rem;font-size:.83rem;opacity:.75}
 .geschenk{
-  max-width:48ch;margin-top:1.1rem;padding:.9rem 1.2rem;border-left:3px solid var(--bernstein);
+  margin-top:1.1rem;padding:.9rem 1.2rem;border-left:3px solid var(--bernstein);
   background:#fff;font-size:.93rem;line-height:1.6;
 }
 .geschenk span{display:block;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);opacity:.75}
 .geschenk b{display:block;margin:.2rem 0 .3rem;font-family:var(--display);font-weight:600;font-size:1.05rem;line-height:1.35}
 
-.kontaktdaten{margin-top:2rem;font-size:1rem;line-height:2}
+.kontaktdaten{font-size:1rem;line-height:2}
 .kontaktdaten a{text-decoration:none;box-shadow:inset 0 -1px 0 var(--bernstein)}
 
 /* Fuß */
@@ -1244,6 +1271,7 @@ section#hinweis .innen{position:relative;z-index:1}
   <div class="innen">
     <div class="marke">Einladung</div>
     <h2>Ich freue mich, von dir zu hören.</h2>
+    <div class="kontakt-raster">
     <div class="satz">
       <p>
         Manchmal braucht es einfach neuen Schwung, Klarheit und alltagstaugliche Impulse, um wieder ganz bei sich anzukommen. Wenn du spürst, dass es Zeit für Veränderung, Entlastung und neue Klarheit ist, begleite ich dich gern ein Stück auf deinem Weg.
@@ -1297,10 +1325,12 @@ section#hinweis .innen{position:relative;z-index:1}
       Telefon <a href="tel:+4916033968333">+49 160 33 968 33</a><br>
       E-Mail <a href="mailto:praxis@catherine-wuennenberg.de">praxis@catherine-wuennenberg.de</a>
     </p>
+    </div>
 
-    <div style="margin-top:3rem">
+    <div class="brief-kasten">
+      <div>
       <h3>Ein Brief im Monat</h3>
-      <p style="font-size:.96rem;max-width:48ch;opacity:.85">
+      <p class="brief-intro">
         Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
       </p>
       <p class="geschenk">
@@ -1308,6 +1338,8 @@ section#hinweis .innen{position:relative;z-index:1}
         <b>Die Hawkins-Skala – deine Landkarte der Bewusstseinsebenen.</b>
         Mit drei konkreten Schritten, um deinem Tag Schwung zu verleihen. Du bekommst das PDF, sobald du deine Anmeldung bestätigt hast.
       </p>
+      </div>
+      <div>
       <form class="brief" id="brief" method="POST" novalidate
             action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
         <div class="eingabe">
@@ -1324,6 +1356,7 @@ section#hinweis .innen{position:relative;z-index:1}
         <p class="brief-status" role="status" aria-live="polite"></p>
       </form>
       <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit über den Link in jedem Brief.</p>
+      </div>
     </div>
   </div>
 </section>
