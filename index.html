@@ -1385,6 +1385,7 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
     <div>
       <form class="brief" id="brief" method="POST" novalidate
             action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
+        <input type="text" name="VORNAME" class="brief-mail" placeholder="Dein Vorname" aria-label="Vorname" autocomplete="given-name" required>
         <input type="email" name="EMAIL" class="brief-mail" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" autocomplete="email" required>
         <label class="wahl">
           <input type="checkbox" name="OPT_IN" value="1" required>
@@ -1433,7 +1434,8 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
   function melde(text,art){status.textContent=text;status.setAttribute('data-art',art);}
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var mail=form.elements.EMAIL, zustimmung=form.elements.OPT_IN;
+    var name=form.elements.VORNAME, mail=form.elements.EMAIL, zustimmung=form.elements.OPT_IN;
+    if(!name.value.trim()){melde('Bitte gib deinen Vornamen ein.','fehler');name.focus();return;}
     if(!mail.value.trim()||!mail.checkValidity()){melde('Bitte gib eine gültige E-Mail-Adresse ein.','fehler');mail.focus();return;}
     if(!zustimmung.checked){melde('Bitte bestätige, dass du den Brief erhalten möchtest.','fehler');zustimmung.focus();return;}
     knopf.disabled=true;
