@@ -1439,13 +1439,20 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
     knopf.disabled=true;
     melde('Einen Moment …','');
     fetch(form.action+'?isAjax=1',{method:'POST',body:new FormData(form)})
-      .then(function(r){return r.json();})
+      .then(function(r){return r.json();},function(err){
+        // Anfrage wurde gar nicht zugestellt (oft ein Werbeblocker): normal abschicken, Brevo zeigt dann seine eigene Seite
+        console.warn('Newsletter: Hintergrundanfrage fehlgeschlagen, sende Formular direkt',err);
+        HTMLFormElement.prototype.submit.call(form);
+        return null;
+      })
       .then(function(d){
-        if(!d||!d.success)throw new Error();
+        if(d===null)return;
+        if(!d||!d.success){console.warn('Newsletter: Antwort von Brevo',d);throw new Error();}
         form.reset();
         melde('Fast geschafft! Bitte schau in dein Postfach und bestätige deine Anmeldung über den Link in der E-Mail.','ok');
       })
-      .catch(function(){
+      .catch(function(err){
+        console.warn('Newsletter:',err);
         melde('Das hat leider nicht geklappt. Bitte versuch es später noch einmal oder schreib mir eine E-Mail.','fehler');
       })
       .then(function(){knopf.disabled=false;});
