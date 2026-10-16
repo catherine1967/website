@@ -772,9 +772,20 @@ section#hinweis .innen{position:relative;z-index:1}
 }
 
 /* Newsletter */
-section#newsletter{padding:3.5rem 0}
-@media(min-width:840px){section#newsletter{padding:4rem 0}}
-section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
+section#newsletter{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(224,160,43,.16), transparent 30%),
+    radial-gradient(circle at 90% 85%, rgba(95,187,178,.14), transparent 30%),
+    var(--sand);
+}
+section#newsletter .innen{position:relative;z-index:1}
+section#newsletter h2{font-size:clamp(1.75rem,3.4vw,2.4rem)}
+section#newsletter .brief{
+  background:rgba(255,255,255,.62);border-radius:14px;
+  padding:1.8rem 1.4rem;box-shadow:0 14px 34px rgba(10,59,69,.08);
+}
+@media(min-width:600px){section#newsletter .brief{padding:2.2rem 2.2rem}}
 .brief-raster{display:grid;gap:2.2rem}
 @media(min-width:900px){.brief-raster{grid-template-columns:minmax(0,1fr) minmax(0,26rem);column-gap:4.5rem;align-items:center}}
 .brief-intro{margin-top:.6rem;font-size:.98rem;opacity:.85;max-width:46ch}
@@ -843,6 +854,7 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
 <nav class="wegweiser" aria-label="Abschnitte dieser Seite">
   <a class="knoten" href="#auftakt"><em>Anfang</em></a>
   <a class="knoten" href="#erkennen"><em>Bei mir bist du richtig</em></a>
+  <a class="knoten" href="#newsletter"><em>Ein Brief im Monat</em></a>
   <a class="knoten" href="#person"><em>Über mich</em></a>
   <a class="knoten" href="#ferne"><em>Fernreiki</em></a>
   <a class="knoten" href="#angebote"><em>Meine Angebote</em></a>
@@ -911,6 +923,42 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
       <p>„Wunderbar waren für mich die vielen konkreten und hilfreichen Anregungen, die ich selber in meinem Alltag umsetzen konnte.“</p>
       <cite>Antje</cite>
     </blockquote>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="band band-sand" id="newsletter">
+  <div class="innen brief-raster">
+    <div>
+      <h2>Ein Brief im Monat</h2>
+      <p class="brief-intro">
+        Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
+      </p>
+      <div class="geschenk">
+        <img src="assets/hawkins-vorschau.jpg" alt="Titelseite des PDFs „Die Hawkins-Skala“" width="400" height="566" loading="lazy">
+        <p>
+          <span>Als Willkommensgeschenk</span>
+          <b>Die Hawkins-Skala – deine Landkarte der Bewusstseinsebenen</b>
+          Mit drei konkreten Schritten für mehr Schwung im Alltag. Das PDF kommt, sobald du deine Anmeldung bestätigt hast.
+        </p>
+      </div>
+    </div>
+    <div>
+      <form class="brief" id="brief" method="POST" novalidate
+            action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
+        <input type="text" name="VORNAME" class="brief-mail" placeholder="Dein Vorname" aria-label="Vorname" autocomplete="given-name" required>
+        <input type="email" name="EMAIL" class="brief-mail" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" autocomplete="email" required>
+        <label class="wahl">
+          <input type="checkbox" name="OPT_IN" value="1" required>
+          <span>Ja, ich möchte den Brief im Monat erhalten. Meine Daten werden über Brevo verarbeitet, mehr dazu in der <a href="datenschutz.html#newsletter">Datenschutzerklärung</a>.</span>
+        </label>
+        <input type="text" name="email_address_check" value="" class="falle" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="de">
+        <button class="absenden" type="submit">Anmelden</button>
+        <p class="brief-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit über den Link in jedem Brief.</p>
+    </div>
   </div>
 </section>
 
@@ -1361,42 +1409,6 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
         E-Mail <a href="mailto:praxis@catherine-wuennenberg.de">praxis@catherine-wuennenberg.de</a>
       </p>
     </div>
-    </div>
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section class="band band-sand" id="newsletter">
-  <div class="innen brief-raster">
-    <div>
-      <h2>Ein Brief im Monat</h2>
-      <p class="brief-intro">
-        Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
-      </p>
-      <div class="geschenk">
-        <img src="assets/hawkins-vorschau.jpg" alt="Titelseite des PDFs „Die Hawkins-Skala“" width="400" height="566" loading="lazy">
-        <p>
-          <span>Als Willkommensgeschenk</span>
-          <b>Die Hawkins-Skala – deine Landkarte der Bewusstseinsebenen</b>
-          Mit drei konkreten Schritten für mehr Schwung im Alltag. Das PDF kommt, sobald du deine Anmeldung bestätigt hast.
-        </p>
-      </div>
-    </div>
-    <div>
-      <form class="brief" id="brief" method="POST" novalidate
-            action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
-        <input type="text" name="VORNAME" class="brief-mail" placeholder="Dein Vorname" aria-label="Vorname" autocomplete="given-name" required>
-        <input type="email" name="EMAIL" class="brief-mail" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" autocomplete="email" required>
-        <label class="wahl">
-          <input type="checkbox" name="OPT_IN" value="1" required>
-          <span>Ja, ich möchte den Brief im Monat erhalten. Meine Daten werden über Brevo verarbeitet, mehr dazu in der <a href="datenschutz.html#newsletter">Datenschutzerklärung</a>.</span>
-        </label>
-        <input type="text" name="email_address_check" value="" class="falle" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="locale" value="de">
-        <button class="absenden" type="submit">Anmelden</button>
-        <p class="brief-status" role="status" aria-live="polite"></p>
-      </form>
-      <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit über den Link in jedem Brief.</p>
     </div>
   </div>
 </section>
