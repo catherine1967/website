@@ -399,7 +399,7 @@ section#kontakt .innen::after{
   display:grid;
   grid-template-columns:minmax(0,1.45fr) minmax(220px,.85fr);
   gap:2rem;
-  align-items:start;
+  align-items:center;
 }
 .reiki-layout .satz{max-width:none}
 .reiki-bild{
@@ -529,6 +529,7 @@ p+p{margin-top:1.1rem}
 
 /* Listen */
 .zustaende{list-style:none;max-width:var(--schmal);margin-top:0}
+section#reiki h2{margin-bottom:0}
 section#reiki h2 + .reiki-layout{margin-top:0}
 section#reiki .satz > p:first-child{margin-top:0}
 section#reiki .satz > p:last-child{margin-bottom:0}
@@ -789,13 +790,7 @@ section#einladung{
 }
 
 /* Newsletter */
-section#newsletter{
-  padding:3.5rem 0;
-  background:
-    radial-gradient(circle at 85% 20%, rgba(255,255,255,.45), transparent 30%),
-    radial-gradient(circle at 10% 90%, rgba(95,187,178,.16), transparent 32%),
-    var(--salbei-hell);
-}
+section#newsletter{padding:3.5rem 0}
 @media(min-width:840px){section#newsletter{padding:4rem 0}}
 section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
 .brief-raster{display:grid;gap:2.2rem}
@@ -955,39 +950,32 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
   </div>
 </section>
 
-<!-- Newsletter -->
-<section class="band band-salbei" id="newsletter">
-  <div class="innen brief-raster">
-    <div>
-      <h2>Ein Brief im Monat</h2>
-      <p class="brief-intro">
-        Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
-      </p>
-      <div class="geschenk">
-        <img src="assets/hawkins-vorschau.jpg" alt="Titelseite des PDFs „Die Hawkins-Skala“" width="400" height="566" loading="lazy">
+<!-- Was ist Reiki -->
+<section class="band band-hell" id="reiki">
+  <div class="innen">
+    <div class="marke">Was ist Reiki</div>
+    <h2>Was ist Reiki?</h2>
+    <div class="reiki-layout">
+      <div class="satz">
         <p>
-          <span>Als Willkommensgeschenk</span>
-          <b>Die Hawkins-Skala – deine Landkarte der Bewusstseinsebenen</b>
-          Mit drei konkreten Schritten für mehr Schwung im Alltag. Das PDF kommt, sobald du deine Anmeldung bestätigt hast.
+          Reiki ist eine japanische Methode der Energiearbeit, die von Dr. Mikao Usui entwickelt wurde. „Rei“ bedeutet „universell“, „Ki“ bedeutet Lebensenergie. Nach dem Verständnis von Reiki ist diese Energie jedem zugänglich.
+        </p>
+        <p>
+          Während einer Behandlung kanalisiert die oder der Praktizierende diese Energie und gibt sie über die Hände weiter.
         </p>
       </div>
+      <figure class="reiki-bild">
+        <img src="assets/behandlung.jpg" alt="Reiki-Behandlung" width="1075" height="1464" loading="lazy">
+      </figure>
     </div>
-    <div>
-      <form class="brief" id="brief" method="POST" novalidate
-            action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
-        <input type="text" name="VORNAME" class="brief-mail" placeholder="Dein Vorname" aria-label="Vorname" autocomplete="given-name" required>
-        <input type="email" name="EMAIL" class="brief-mail" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" autocomplete="email" required>
-        <label class="wahl">
-          <input type="checkbox" name="OPT_IN" value="1" required>
-          <span>Ja, ich möchte den Brief im Monat erhalten. Meine Daten werden über Brevo verarbeitet, mehr dazu in der <a href="datenschutz.html#newsletter">Datenschutzerklärung</a>.</span>
-        </label>
-        <input type="text" name="email_address_check" value="" class="falle" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="locale" value="de">
-        <button class="absenden" type="submit">Anmelden</button>
-        <p class="brief-status" role="status" aria-live="polite"></p>
-      </form>
-      <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit über den Link in jedem Brief.</p>
-    </div>
+    <ul class="zustaende">
+      Viele Menschen erleben eine Reiki-Behandlung als
+      <li>tief entspannend</li>
+      <li>wohltuend und kräftigend</li>
+      <li>einen Moment, in dem Gefühle und Gedanken zur Ruhe kommen</li>
+      <li>eine Erfahrung, in der Körper, Geist und Seele sich verbunden anfühlen</li>
+    </ul>
+    <a class="schritt" href="#kontakt">Unverbindliches Erstgespräch vereinbaren</a>
   </div>
 </section>
 
@@ -1410,31 +1398,38 @@ section#newsletter h2{font-size:clamp(1.6rem,3vw,2.1rem)}
   </div>
 </section>
 
-<!-- Was ist Reiki -->
-<section class="band band-hell" id="reiki">
-  <div class="innen">
-    <div class="marke">Was ist Reiki</div>
-    <h2>Was ist Reiki?</h2>
-    <div class="reiki-layout">
-      <div class="satz">
+<!-- Newsletter -->
+<section class="band band-sand" id="newsletter">
+  <div class="innen brief-raster">
+    <div>
+      <h2>Ein Brief im Monat</h2>
+      <p class="brief-intro">
+        Ein Impuls aus der Praxis, ein persönlicher Abschnitt und die nächsten Seminartermine.
+      </p>
+      <div class="geschenk">
+        <img src="assets/hawkins-vorschau.jpg" alt="Titelseite des PDFs „Die Hawkins-Skala“" width="400" height="566" loading="lazy">
         <p>
-          Reiki ist eine japanische Methode der Energiearbeit, die von Dr. Mikao Usui entwickelt wurde. „Rei“ bedeutet „universell“, „Ki“ bedeutet Lebensenergie. Nach dem Verständnis von Reiki ist diese Energie jedem zugänglich.
+          <span>Als Willkommensgeschenk</span>
+          <b>Die Hawkins-Skala – deine Landkarte der Bewusstseinsebenen</b>
+          Mit drei konkreten Schritten für mehr Schwung im Alltag. Das PDF kommt, sobald du deine Anmeldung bestätigt hast.
         </p>
-        <p>
-          Während einer Behandlung kanalisiert die oder der Praktizierende diese Energie und gibt sie über die Hände weiter.
-        </p>
-        <p>Viele Menschen erleben eine Reiki-Behandlung als</p>
-        <ul class="zustaende">
-          <li>tief entspannend</li>
-          <li>wohltuend und kräftigend</li>
-          <li>einen Moment, in dem Gefühle und Gedanken zur Ruhe kommen</li>
-          <li>eine Erfahrung, in der Körper, Geist und Seele sich verbunden anfühlen</li>
-        </ul>
-        <a class="schritt" href="#kontakt">Unverbindliches Erstgespräch vereinbaren</a>
       </div>
-      <figure class="reiki-bild">
-        <img src="assets/behandlung.jpg" alt="Reiki-Behandlung" width="1075" height="1464" loading="lazy">
-      </figure>
+    </div>
+    <div>
+      <form class="brief" id="brief" method="POST" novalidate
+            action="https://f57cd1fe.sibforms.com/serve/MUIFAHDNg6UmomFUbGAJ1avfjUG-a40dfYbtVa8b5e-bE3SCE5JSRd3BNKIe7W0_hTTwhpx3NUKYpXBEZgVvGOXRxJkImXOKq_89mfZLBeosgRObHI0X-IG5zf-WxLfrByD5sHw2DuXFtG1bLBG6fRG-GG0ZrwoUBVZjVE5UtM7XKEsDrFBFtzGZTRt45bni35W17dZ_nVakiMe-Jg==">
+        <input type="text" name="VORNAME" class="brief-mail" placeholder="Dein Vorname" aria-label="Vorname" autocomplete="given-name" required>
+        <input type="email" name="EMAIL" class="brief-mail" placeholder="Deine E-Mail-Adresse" aria-label="E-Mail-Adresse" autocomplete="email" required>
+        <label class="wahl">
+          <input type="checkbox" name="OPT_IN" value="1" required>
+          <span>Ja, ich möchte den Brief im Monat erhalten. Meine Daten werden über Brevo verarbeitet, mehr dazu in der <a href="datenschutz.html#newsletter">Datenschutzerklärung</a>.</span>
+        </label>
+        <input type="text" name="email_address_check" value="" class="falle" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="locale" value="de">
+        <button class="absenden" type="submit">Anmelden</button>
+        <p class="brief-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="versprechen">Höchstens einmal im Monat. Abmeldung jederzeit über den Link in jedem Brief.</p>
     </div>
   </div>
 </section>
