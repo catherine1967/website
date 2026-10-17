@@ -701,11 +701,13 @@ section#reiki .satz > p:last-child{margin-bottom:0}
 
 /* Instagram im Kopf */
 .insta{
-  font-size:.8rem;font-weight:600;text-decoration:none;color:var(--petrol);
-  box-shadow:inset 0 -2px 0 var(--himmel);padding-bottom:.15rem;
-  transition:box-shadow .3s ease;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:.45em;
+  font-size:.95rem;font-weight:600;text-decoration:none;color:var(--petrol);
+  border:2px solid var(--petrol);border-radius:100px;padding:.45rem 1.05rem;
+  transition:background .3s ease,color .3s ease,border-color .3s ease;white-space:nowrap;
 }
-.insta:hover,.insta:focus-visible{box-shadow:inset 0 -2px 0 var(--bernstein)}
+.insta:hover,.insta:focus-visible{background:var(--petrol);color:var(--eis-hell)}
+.kopf .insta svg{width:1.3em;height:1.3em}
 .kopf-rechts{display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap}
 
 /* Praxis */
