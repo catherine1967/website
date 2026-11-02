@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.catherine-wuennenberg.de/sitemap.xml
+Sitemap: https://catherine-wuennenberg.de/sitemap.xml
